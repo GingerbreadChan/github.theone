@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>距离女神高考时间</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{
+            line-height: 100%;
+            /*width: 400px;
+            height: 200px;*/
+            margin: 0px auto;
+            text-align: center;
+        }
+        li{
+            list-style: none;
+            font-size: 18px;
+            color: mediumpurple;
+            font-weight: 700;
+            line-height: 40px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var child = box.children;
+            setInterval(fun,1000);
+            function fun() {
+                var endTime = new Date("2019/06/07 00:00:00");
+                var endDate = endTime.getTime();
+                var date = new Date();
+                var nowDate = date.getTime();
+                var second = (endDate-nowDate)/1000;
+                var d = parseInt(second / 3600 / 24);
+                var h = parseInt(second /3600 % 24);
+                var m = parseInt(second / 60 % 60);
+                var s = parseInt(second % 60);
+                var arr = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];  
+                child[2].innerHTML = parseInt((endDate-nowDate)/1000 / 3600 % 24)+"小时";
+                child[3].innerHTML = parseInt((endDate-nowDate)/1000 / 60 % 60)+"分";
+                child[4].innerHTML = parseInt((endDate-nowDate)/1000 % 60)+"秒";*/
+                d < 10 ? d="0"+ d : d;
+                h < 10 ? h="0"+ h : h;
+                m < 10 ? m="0"+ m : m;
+                s < 10 ? s="0"+ s : s;
+
+                var hh = date.getHours();
+                var mm = date.getMinutes();
+                var ss = date.getSeconds();
+                child[0].innerHTML = "距离女神高考还有";
+                child[1].innerHTML = d+"天"+h+"小时"+m+"分"+s+"秒";
+                child[2].innerHTML = "今天是："+date.toLocaleDateString();
+                child[3].innerHTML = arr[date.getDay()];
+                hh < 10 ? hh="0"+ hh : hh;
+                mm < 10 ? mm="0"+ mm : mm;
+                ss < 10 ? ss="0"+ ss : ss;
+                child[4].innerHTML ="当前时间："+ hh+":"+mm+":"+ss;
+
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <ul id="box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
